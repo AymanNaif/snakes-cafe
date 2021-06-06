@@ -34,18 +34,23 @@ Coffee
 Tea
 Unicorn Tears
 """)
-
-i = 0
-while i >= 0:
+ordered_item = []
+i = 1
+while i >= 1:
     order = input("""
 ***********************************
 ** What would you like to order? **
 ***********************************
 > """)
-    i = i+1
+    if order in ordered_item:
+        i = i+1
+    else:
+        ordered_item.append(order)
+        i = 1
+
     if (order.capitalize() in order_list):
         print(f'** {i} order of {order} have been added to your meal **')
+    elif(order == 'quit'):
+        break
     else:
         print(f'sorry {order} is not in the menu')
-    if(order == 'quit'):
-        break
